@@ -10,9 +10,6 @@ import XCTest
 
 class EMLEngineTests: XCTestCase {
     
-    func test_newSchool_hasCorrectName() {
-        let sut = School("school name")
-        
-        XCTAssertEqual(sut.name, "school name")
-    }
+    
+    
 }

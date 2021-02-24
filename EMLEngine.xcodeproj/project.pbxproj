@@ -10,6 +10,7 @@
 		DE45DF8D25E57E23006B9C6B /* EMLEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE45DF8325E57E23006B9C6B /* EMLEngine.framework */; };
 		DE45DF9225E57E23006B9C6B /* EMLEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45DF9125E57E23006B9C6B /* EMLEngineTests.swift */; };
 		DE45DFA225E57EB3006B9C6B /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45DFA125E57EB3006B9C6B /* School.swift */; };
+		DEBE164525E5B63F00DD29B8 /* SchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE164425E5B63F00DD29B8 /* SchoolTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		DE45DF9125E57E23006B9C6B /* EMLEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMLEngineTests.swift; sourceTree = "<group>"; };
 		DE45DF9325E57E23006B9C6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE45DFA125E57EB3006B9C6B /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		DEBE164425E5B63F00DD29B8 /* SchoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				DE45DF9125E57E23006B9C6B /* EMLEngineTests.swift */,
 				DE45DF9325E57E23006B9C6B /* Info.plist */,
+				DEBE164425E5B63F00DD29B8 /* SchoolTests.swift */,
 			);
 			path = EMLEngineTests;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE45DF9225E57E23006B9C6B /* EMLEngineTests.swift in Sources */,
+				DEBE164525E5B63F00DD29B8 /* SchoolTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

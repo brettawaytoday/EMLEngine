@@ -11,6 +11,10 @@
 		DE45DF9225E57E23006B9C6B /* EMLEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45DF9125E57E23006B9C6B /* EMLEngineTests.swift */; };
 		DE45DFA225E57EB3006B9C6B /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45DFA125E57EB3006B9C6B /* School.swift */; };
 		DEBE164525E5B63F00DD29B8 /* SchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE164425E5B63F00DD29B8 /* SchoolTests.swift */; };
+		DEBE164925E5E47300DD29B8 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE164825E5E47300DD29B8 /* Classroom.swift */; };
+		DEBE164D25E5E49400DD29B8 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE164C25E5E49400DD29B8 /* Meal.swift */; };
+		DEBE165125E5E4BC00DD29B8 /* MealSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE165025E5E4BC00DD29B8 /* MealSize.swift */; };
+		DEBE165525E5E4DB00DD29B8 /* Dietaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE165425E5E4DB00DD29B8 /* Dietaries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +35,10 @@
 		DE45DF9325E57E23006B9C6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE45DFA125E57EB3006B9C6B /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		DEBE164425E5B63F00DD29B8 /* SchoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTests.swift; sourceTree = "<group>"; };
+		DEBE164825E5E47300DD29B8 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		DEBE164C25E5E49400DD29B8 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		DEBE165025E5E4BC00DD29B8 /* MealSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSize.swift; sourceTree = "<group>"; };
+		DEBE165425E5E4DB00DD29B8 /* Dietaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dietaries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,10 @@
 			children = (
 				DE45DF8725E57E23006B9C6B /* Info.plist */,
 				DE45DFA125E57EB3006B9C6B /* School.swift */,
+				DEBE164825E5E47300DD29B8 /* Classroom.swift */,
+				DEBE164C25E5E49400DD29B8 /* Meal.swift */,
+				DEBE165025E5E4BC00DD29B8 /* MealSize.swift */,
+				DEBE165425E5E4DB00DD29B8 /* Dietaries.swift */,
 			);
 			path = EMLEngine;
 			sourceTree = "<group>";
@@ -198,6 +210,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE45DFA225E57EB3006B9C6B /* School.swift in Sources */,
+				DEBE164D25E5E49400DD29B8 /* Meal.swift in Sources */,
+				DEBE164925E5E47300DD29B8 /* Classroom.swift in Sources */,
+				DEBE165125E5E4BC00DD29B8 /* MealSize.swift in Sources */,
+				DEBE165525E5E4DB00DD29B8 /* Dietaries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

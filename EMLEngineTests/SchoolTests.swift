@@ -36,6 +36,16 @@ class SchoolTests: XCTestCase {
         XCTAssertEqual(meal.classroom!.name, classroom.name)
     }
     
+    func test_addTwoMealsToClassroom_reternsMealCountOfTwo() {
+        let classroom = makeClassroom()
+        let meal = makeMealWithDietaries()
+        
+        addMeal(meal, to: classroom)
+        addMeal(meal, to: classroom)
+        
+        XCTAssertEqual(classroom.meals.count, 2)
+    }
+    
     //MARK: Helpers
     
     func makeSchool() -> School {

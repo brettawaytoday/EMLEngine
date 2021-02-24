@@ -14,18 +14,19 @@ class School {
     init(_ name: String) {
         self.name = name
     }
+    var meals: [Meal] {
+        classrooms.reduce([]) { (meals, classroom) -> [Meal] in
+            meals + classroom.meals
+        }
+    }
+    
+    func mealCount() -> Int{
+        classrooms.reduce(0) { (result, classroom) -> Int in
+            result + classroom.mealCount
+        }
+    }
     
     func add(_ classroom: Classroom) {
         classrooms.append(classroom)
     }
-}
-
-func addClassroom(_ classroom: Classroom, to school: School) {
-    classroom.assign(school)
-    school.add(classroom)
-}
-
-func addMeal(_ meal: Meal, to classroom: Classroom){
-    meal.assign(classroom)
-    classroom.add(meal)
 }

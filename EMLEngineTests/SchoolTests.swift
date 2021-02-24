@@ -45,22 +45,4 @@ class SchoolTests: XCTestCase {
         
         XCTAssertEqual(classroom.meals.count, 2)
     }
-    
-    //MARK: Helpers
-    
-    func makeSchool() -> School {
-        return School("school name")
-    }
-    
-    func makeClassroom() -> Classroom {
-        return Classroom("classroom name")
-    }
-    
-    func makeMealWithDietaries() -> Meal {
-        let noFish = Dietaries(name: "No Fish", color: "yellow")
-        let vegan = Dietaries(name: "Vegan", color: "red")
-        
-        return Meal(.regular, dietaries: [noFish, vegan])
-    }
-
 }

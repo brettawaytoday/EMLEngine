@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Classroom {
+final class Classroom {
     var school: School?
     let name: String
     

@@ -7,13 +7,14 @@
 
 import Foundation
 
-class School {
+final class School {
     let name: String
     var classrooms: [Classroom] = []
     
     init(_ name: String) {
         self.name = name
     }
+    
     var meals: [Meal] {
         classrooms.reduce([]) { (meals, classroom) -> [Meal] in
             meals + classroom.meals

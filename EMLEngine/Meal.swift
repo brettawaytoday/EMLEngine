@@ -7,7 +7,9 @@
 
 import Foundation
 
-class Meal {
+public protocol MealType {}
+
+final class Meal: MealType{
     var classroom: Classroom?
     
     let size: MealSize

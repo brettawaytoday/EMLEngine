@@ -28,7 +28,7 @@ class SchoolTests: XCTestCase {
     
     func test_addMealToClassroom_rendersCorrectAllocations() {
         let classroom = makeClassroom()
-        let meal = makeMealWithDietaries()
+        let meal = makeMealWithDietaries_noFish_vegan()
         
         addMeal(meal, to: classroom)
         
@@ -38,7 +38,7 @@ class SchoolTests: XCTestCase {
     
     func test_addTwoMealsToClassroom_reternsMealCountOfTwo() {
         let classroom = makeClassroom()
-        let meal = makeMealWithDietaries()
+        let meal = makeMealWithDietaries_noFish_vegan()
         
         addMeal(meal, to: classroom)
         addMeal(meal, to: classroom)

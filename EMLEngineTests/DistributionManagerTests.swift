@@ -11,7 +11,7 @@ import XCTest
 class DistributionManagerTests: XCTestCase {
     
     func test_demoModelController_countsFiftyMeals() {
-        let distributionManager = makeDemoDistributionManager()
+        let distributionManager = makeDistributionManager()
 
         XCTAssertEqual(distributionManager.schools.count, 2)
         XCTAssertEqual(distributionManager.classroomCount, 10)
@@ -19,18 +19,30 @@ class DistributionManagerTests: XCTestCase {
     }
     
     func test_demoModelController_withOneSearchParameter_returnsCorrectMealCount() {
-        let distributionManager = makeDemoDistributionManager()
+        let distributionManager = makeDistributionManager()
 
         let dietaryRequirement = [Dietaries(name: "No Fish", color: "yellow")]
 
         XCTAssertEqual(distributionManager.allMeals.count, 50)
-        XCTAssertEqual(distributionManager.countMealsWith(dietaryRequirement), 20)
+        XCTAssertEqual(distributionManager.countMealsContaining(dietaryRequirement), 20)
     }
     
     func test_demoModelController_withTwoSearchParameters_returnsCorrectMealCount() {
 
         let dietaryRequirement: [Dietaries] = [Dietaries(name: "No Fish", color: "yellow"), Dietaries(name: "No Meat", color: "red")]
         
-        XCTAssertEqual(makeDemoDistributionManager().countMealsWith(dietaryRequirement), 40)
+        XCTAssertEqual(makeDistributionManager().countMealsContaining(dietaryRequirement), 40)
+    }
+    
+    func test_distributionManager_withTwoSearchParameters_returnsMealCountMatchingAll() {
+        let dietaryRequirement = [Dietaries(name: "No raw Onion", color: "yellow"), Dietaries(name: "Vegan", color: "red")]
+        
+        XCTAssertEqual(makeDistributionManager().countMealsMatching(dietaryRequirement), 0)
+    }
+    
+    func test_distributionManager_withOrder_returnsCorrectBoxCountForClassroom() {
+        let distributionManager = makeDistributionManager()
+        
+        XCTAssertEqual(distributionManager.schools.first?.classrooms.first?.packMeals(with: [.boxTwelve, .boxSix]).count, 1)
     }
 }

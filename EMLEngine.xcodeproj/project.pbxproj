@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE41C11A25EDA4160095B260 /* Classroom+Packaging+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41C11925EDA4160095B260 /* Classroom+Packaging+EXT.swift */; };
+		DE41C11E25EDA44F0095B260 /* Packaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41C11D25EDA44F0095B260 /* Packaging.swift */; };
 		DE45DF8D25E57E23006B9C6B /* EMLEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE45DF8325E57E23006B9C6B /* EMLEngine.framework */; };
 		DE45DF9225E57E23006B9C6B /* DistributionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45DF9125E57E23006B9C6B /* DistributionManagerTests.swift */; };
 		DE45DFA225E57EB3006B9C6B /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45DFA125E57EB3006B9C6B /* School.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE41C11925EDA4160095B260 /* Classroom+Packaging+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classroom+Packaging+EXT.swift"; sourceTree = "<group>"; };
+		DE41C11D25EDA44F0095B260 /* Packaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packaging.swift; sourceTree = "<group>"; };
 		DE45DF8325E57E23006B9C6B /* EMLEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EMLEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE45DF8725E57E23006B9C6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE45DF8C25E57E23006B9C6B /* EMLEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EMLEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +94,8 @@
 				DE45DF8725E57E23006B9C6B /* Info.plist */,
 				DE45DFA125E57EB3006B9C6B /* School.swift */,
 				DEBE164825E5E47300DD29B8 /* Classroom.swift */,
+				DE41C11925EDA4160095B260 /* Classroom+Packaging+EXT.swift */,
+				DE41C11D25EDA44F0095B260 /* Packaging.swift */,
 				DEBE164C25E5E49400DD29B8 /* Meal.swift */,
 				DEBE165025E5E4BC00DD29B8 /* MealSize.swift */,
 				DEBE165425E5E4DB00DD29B8 /* Dietaries.swift */,
@@ -218,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE41C11E25EDA44F0095B260 /* Packaging.swift in Sources */,
 				DE45DFA225E57EB3006B9C6B /* School.swift in Sources */,
 				DEBE164D25E5E49400DD29B8 /* Meal.swift in Sources */,
 				DEBE164925E5E47300DD29B8 /* Classroom.swift in Sources */,
@@ -225,6 +232,7 @@
 				DEBE165125E5E4BC00DD29B8 /* MealSize.swift in Sources */,
 				DEBE165525E5E4DB00DD29B8 /* Dietaries.swift in Sources */,
 				DE46954125E617DB006CACA8 /* DistributionManager.swift in Sources */,
+				DE41C11A25EDA4160095B260 /* Classroom+Packaging+EXT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

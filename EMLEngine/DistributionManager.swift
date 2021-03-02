@@ -54,3 +54,12 @@ class DistributionManager {
         return mealsContainingDietary.count
     }
 }
+
+extension DistributionManager {
+    func packageOrder(in packagingType: [PackagingType]) -> [Packaging] {
+        
+        return schools.reduce([Packaging]()) { (packaging, school) -> [Packaging] in
+            packaging + school.packMeals(with: packagingType)
+        }
+    }
+}

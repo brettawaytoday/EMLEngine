@@ -21,7 +21,7 @@ class DistributionManagerTests: XCTestCase {
     func test_demoModelController_withOneSearchParameter_returnsCorrectMealCount() {
         let distributionManager = makeDistributionManager()
 
-        let dietaryRequirement = [Dietaries(name: "No Fish", color: "yellow")]
+        let dietaryRequirement = [Dietaries(name: "No Fish", color: "yellow", type: .prefered)]
 
         XCTAssertEqual(distributionManager.allMeals.count, 50)
         XCTAssertEqual(distributionManager.countMealsContaining(dietaryRequirement), 20)
@@ -29,13 +29,13 @@ class DistributionManagerTests: XCTestCase {
     
     func test_demoModelController_withTwoSearchParameters_returnsCorrectMealCount() {
 
-        let dietaryRequirement: [Dietaries] = [Dietaries(name: "No Fish", color: "yellow"), Dietaries(name: "No Meat", color: "red")]
+        let dietaryRequirement: [Dietaries] = [Dietaries(name: "No Fish", color: "yellow", type: .prefered), Dietaries(name: "No Meat", color: "red", type: .prefered)]
         
         XCTAssertEqual(makeDistributionManager().countMealsContaining(dietaryRequirement), 40)
     }
     
     func test_distributionManager_withTwoSearchParameters_returnsMealCountMatchingAll() {
-        let dietaryRequirement = [Dietaries(name: "No raw Onion", color: "yellow"), Dietaries(name: "Vegan", color: "red")]
+        let dietaryRequirement = [Dietaries(name: "No raw Onion", color: "yellow", type: .prefered), Dietaries(name: "Vegan", color: "red", type: .prefered)]
         
         XCTAssertEqual(makeDistributionManager().countMealsMatching(dietaryRequirement), 0)
     }
@@ -46,5 +46,9 @@ class DistributionManagerTests: XCTestCase {
     
     func test_order_returnsCorrectNumberAndSizeOfContainers() {
         XCTAssertEqual(makeDistributionManager().schools.last?.packMeals(with: [.boxTwelve, .boxSix]).count, 5)
+    }
+    
+    func test_order_returnAllContainersForDelivery() {
+        XCTAssertEqual(makeDistributionManager().packageOrder(in: [.boxTwelve, .boxSix]).count, 10)
     }
 }

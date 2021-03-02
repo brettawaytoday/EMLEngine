@@ -39,7 +39,6 @@ extension Classroom: PackagingUse {
                     packaging.append(container)
             }
         }
-        
         return packaging
     }
 }

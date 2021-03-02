@@ -19,22 +19,22 @@ func makeClassroom() -> Classroom {
 }
 
 func makeMealWithDietaries_noFish_vegan() -> Meal {
-    let noFish = Dietaries(name: "No Fish", color: "yellow")
-    let vegan = Dietaries(name: "Vegan", color: "red")
+    let noFish = Dietaries(name: "No Fish", color: "yellow", type: .prefered)
+    let vegan = Dietaries(name: "Vegan", color: "red", type: .prefered)
     
     return Meal(.regular, dietaries: [noFish, vegan])
 }
 
 func makeMealWithDietaries_noRawOnion_noMeat() -> Meal {
-    let noRawOnion = Dietaries(name: "No raw Onion", color: "yellow")
-    let noMeat = Dietaries(name: "No Meat", color: "red")
+    let noRawOnion = Dietaries(name: "No raw Onion", color: "yellow", type: .prefered)
+    let noMeat = Dietaries(name: "No Meat", color: "red", type: .prefered)
     
     return Meal(.regular, dietaries: [noRawOnion, noMeat])
 }
 
 func makeMealWithDietaries_noRawOnion_vegan() -> Meal {
-    let noRawOnion = Dietaries(name: "No raw Onion", color: "yellow")
-    let vegan = Dietaries(name: "Vegan", color: "red")
+    let noRawOnion = Dietaries(name: "No raw Onion", color: "yellow", type: .prefered)
+    let vegan = Dietaries(name: "Vegan", color: "red", type: .prefered)
     
     return Meal(.regular, dietaries: [noRawOnion, vegan])
 }

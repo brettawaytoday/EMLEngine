@@ -51,4 +51,9 @@ class DistributionManagerTests: XCTestCase {
     func test_order_returnAllContainersForDelivery() {
         XCTAssertEqual(makeDistributionManager().packageOrder(in: [.boxTwelve, .boxSix]).count, 10)
     }
+    
+    func test_largeOrder_returnAllContainersForDelivery() {
+        XCTAssertEqual(makeDistributionManagerWithLargeOrder().packageOrder(in: [.boxSix]).count, 125)
+        XCTAssertEqual(makeDistributionManagerWithLargeOrder().packageOrder(in: [.boxTwelve, .boxSix]).count, 75)
+    }
 }

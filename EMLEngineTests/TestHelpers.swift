@@ -65,3 +65,63 @@ func makeDistributionManager() -> DistributionManager {
     
     return modelController
 }
+
+///5 schools with 5 classrooms and 25 meals per classroom -> Meal count = 625 meals / Classroom count = 25
+func makeDistributionManagerWithLargeOrder() -> DistributionManager {
+    let modelController = DistributionManager()
+
+    let schools = [School("school one"),
+                   School("school two"),
+                   School("school three"),
+                   School("school four"),
+                   School("school five")
+    ]
+
+    for school in schools {
+        let classrooms = [makeClassroom(),
+                          makeClassroom(),
+                          makeClassroom(),
+                          makeClassroom(),
+                          makeClassroom()
+        ]
+
+        for classroom in classrooms {
+            ///25 meals
+            let meals = [makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithoutDietaries(),
+                         makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithoutDietaries(),
+                         makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithoutDietaries(),
+                         makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithoutDietaries(),
+                         makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noFish_vegan(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWithoutDietaries()
+            ]
+
+            for meal in meals {
+                addMeal(meal, to: classroom)
+            }
+            addClassroom(classroom, to: school)
+        }
+    }
+
+    modelController.schools = schools
+    
+    return modelController
+}

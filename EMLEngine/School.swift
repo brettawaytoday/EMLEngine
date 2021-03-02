@@ -31,3 +31,11 @@ final class School {
         classrooms.append(classroom)
     }
 }
+
+extension School {
+    func packMeals(with packagingTypes: [PackagingType]) -> [Packaging] {
+        return classrooms.reduce([Packaging]()) { (packaging, classroom) -> [Packaging] in
+            packaging + classroom.packMeals(with: packagingTypes)
+        }
+    }
+}

@@ -41,8 +41,10 @@ class DistributionManagerTests: XCTestCase {
     }
     
     func test_distributionManager_withOrder_returnsCorrectBoxCountForClassroom() {
-        let distributionManager = makeDistributionManager()
-        
-        XCTAssertEqual(distributionManager.schools.first?.classrooms.first?.packMeals(with: [.boxTwelve, .boxSix]).count, 1)
+        XCTAssertEqual(makeDistributionManager().schools.first?.classrooms.first?.packMeals(with: [.boxTwelve, .boxSix]).count, 1)
+    }
+    
+    func test_order_returnsCorrectNumberAndSizeOfContainers() {
+        XCTAssertEqual(makeDistributionManager().schools.last?.packMeals(with: [.boxTwelve, .boxSix]).count, 5)
     }
 }

@@ -7,26 +7,42 @@
 
 import Foundation
 
-final class Classroom {
-    var school: School?
-    let name: String
+protocol ClassroomProtocol {
+    var school: School? { get set }
+    var name: String { get }
     
-    var meals: [Meal] = []
+    var meals: [Meal] { get set }
     
+    init(_ name: String)
     
+    var mealCount: Int { get }
+    
+    mutating func assign(_ school: School)
+    
+    mutating func add(_ meal: Meal)
+}
+
+extension ClassroomProtocol {
     var mealCount: Int {
         meals.count
     }
     
-    init(_ name: String) {
-        self.name = name
-    }
-    
-    func assign(_ school: School) {
+    mutating func assign(_ school: School) {
         self.school = school
     }
     
-    func add(_ meal: Meal) {
+    mutating func add(_ meal: Meal) {
         meals.append(meal)
+    }
+}
+
+final class Classroom: ClassroomProtocol {
+    internal var school: School?
+    internal var name: String
+    
+    internal var meals: [Meal] = []
+    
+    init(_ name: String) {
+        self.name = name
     }
 }

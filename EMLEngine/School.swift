@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class School {
+final class School: Reportable {
     let name: String
     var classrooms: [Classroom] = []
     

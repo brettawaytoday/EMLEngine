@@ -46,3 +46,4 @@ class SchoolTests: XCTestCase {
         XCTAssertEqual(classroom.meals.count, 2)
     }
 }
+

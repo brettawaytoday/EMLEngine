@@ -7,7 +7,8 @@
 
 import Foundation
 
-class DistributionManager {
+final class DistributionManager {
+    var reportDelegate: ReportDelegate?
     var schools: [School] = []
     
     var classroomCount: Int {

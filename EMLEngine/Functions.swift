@@ -8,6 +8,7 @@
 import Foundation
 
 func addClassroom(_ classroom: Classroom, to school: School) {
+    var school = school
     classroom.assign(school)
     school.add(classroom)
 }

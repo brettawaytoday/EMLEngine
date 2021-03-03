@@ -7,14 +7,18 @@
 
 import Foundation
 
-final class School: Reportable {
-    let name: String
-    var classrooms: [Classroom] = []
+protocol SchoolProtocol {
+    var name: String { get }
+    var classrooms: [Classroom] { get set }
+    var meals: [Meal] { get }
     
-    init(_ name: String) {
-        self.name = name
-    }
+    func mealCount() -> Int
+    mutating func add(_ classroom: Classroom)
     
+    init(_ name: String)
+}
+
+extension SchoolProtocol {
     var meals: [Meal] {
         classrooms.reduce([]) { (meals, classroom) -> [Meal] in
             meals + classroom.meals
@@ -27,8 +31,17 @@ final class School: Reportable {
         }
     }
     
-    func add(_ classroom: Classroom) {
+    mutating func add(_ classroom: Classroom) {
         classrooms.append(classroom)
+    }
+}
+
+final class School: SchoolProtocol, Reportable {
+    internal var name: String
+    internal var classrooms: [Classroom] = []
+    
+    init(_ name: String) {
+        self.name = name
     }
 }
 

@@ -23,7 +23,7 @@ class SchoolTests: XCTestCase {
         
         XCTAssertEqual(school.classrooms.count, 1)
         XCTAssertEqual(classroom.school!.name, school.name)
-        XCTAssertEqual(classroom.name, "classroom name")
+        XCTAssertEqual(school.classrooms.first?.name, "classroom name")
     }
     
     func test_addMealToClassroom_rendersCorrectAllocations() {

@@ -9,18 +9,31 @@ import Foundation
 
 public protocol MealType {}
 
-final class Meal: MealType{
-    var classroom: Classroom?
+protocol MealProtocol {
+    var classroom: Classroom? { get set }
     
-    let size: MealSize
-    var dietaries: [Dietaries]
+    var size: MealSize { get set }
+    var dietaries: [Dietaries] { get set }
+    
+    init(_ size: MealSize, dietaries: [Dietaries])
+    
+    mutating func assign(_ classroom: Classroom)
+}
+
+extension MealProtocol {
+    mutating func assign(_ classroom: Classroom) {
+        self.classroom = classroom
+    }
+}
+
+final class Meal: MealProtocol, MealType{
+    internal var classroom: Classroom?
+    
+    internal var size: MealSize
+    internal var dietaries: [Dietaries]
     
     init(_ size: MealSize, dietaries: [Dietaries]) {
         self.size = size
         self.dietaries = dietaries
-    }
-    
-    func assign(_ classroom: Classroom) {
-        self.classroom = classroom
     }
 }

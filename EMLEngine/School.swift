@@ -36,7 +36,7 @@ extension SchoolProtocol {
     }
 }
 
-final class School: SchoolProtocol, Reportable {
+final class School: SchoolProtocol {
     internal var name: String
     internal var classrooms: [Classroom] = []
     

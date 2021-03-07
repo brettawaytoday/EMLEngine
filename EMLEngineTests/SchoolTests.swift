@@ -22,7 +22,7 @@ class SchoolTests: XCTestCase {
         addClassroom(classroom, to: school)
         
         XCTAssertEqual(school.classrooms.count, 1)
-        XCTAssertEqual(classroom.school!.name, school.name)
+        XCTAssertEqual(classroom.school?.name, school.name)
         XCTAssertEqual(school.classrooms.first?.name, "classroom name")
     }
     
@@ -33,7 +33,7 @@ class SchoolTests: XCTestCase {
         addMeal(meal, to: classroom)
         
         XCTAssertEqual(classroom.meals.count, 1)
-        XCTAssertEqual(meal.classroom!.name, classroom.name)
+        XCTAssertEqual(meal.classroom?.name, classroom.name)
     }
     
     func test_addTwoMealsToClassroom_reternsMealCountOfTwo() {

@@ -16,6 +16,7 @@ func addClassroom(_ classroom: Classroom, to school: School) {
 
 func addMeal(_ meal: Meal, to classroom: Classroom){
     var classroom = classroom
+    var meal = meal
     meal.assign(classroom)
     classroom.add(meal)
 }

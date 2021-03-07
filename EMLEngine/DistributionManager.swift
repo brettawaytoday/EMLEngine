@@ -7,10 +7,22 @@
 
 import Foundation
 
-final class DistributionManager {
-    var reportDelegate: ReportDelegate?
-    var schools: [School] = []
+protocol DistributionProtocol {
     
+    var schools: [School]  { get }
+    
+    var classroomCount: Int { get }
+    
+    var mealCount: Int { get }
+    
+    var allMeals: [Meal] { get }
+    
+    func countMealsContaining(_ dietary: [Dietaries]) -> Int
+    
+    func countMealsMatching(_ dietary: [Dietaries]) -> Int
+}
+
+extension DistributionProtocol{
     var classroomCount: Int {
         schools.reduce(0) { (result, school) -> Int in
             result + school.classrooms.count
@@ -56,9 +68,13 @@ final class DistributionManager {
     }
 }
 
+final class DistributionManager: DistributionProtocol {
+    internal var reportDelegate: ReportDelegate?
+    internal var schools: [School] = []
+}
+
 extension DistributionManager {
     func packageOrder(in packagingType: [PackagingType]) -> [Packaging] {
-        
         return schools.reduce([Packaging]()) { (packaging, school) -> [Packaging] in
             packaging + school.packMeals(with: packagingType)
         }

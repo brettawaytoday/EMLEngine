@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol Reportable {
-    var name: String { get }
-}
-
 protocol Report {
     var type: ReportType { get }
     var title: String { get }
@@ -18,29 +14,35 @@ protocol Report {
 }
 
 protocol ReportDelegate {
-    func generateReports(_ types: [ReportType], for items: [Reportable]) -> Report?
+    func generateReports(_ types: [ReportType], for schools: [School]) -> Report?
 }
 
-class ReportManager: ReportDelegate {
-    var report: Report?
-    
-    func generateReports(_ types: [ReportType], for items: [Reportable]) -> Report? {
-        var newReport = ReportGenerator()
+class ReportManager {
+    var schools: [School] = []
+}
+
+extension ReportManager: ReportDelegate {
+    func generateReports(_ types: [ReportType], for schools: [School]) -> Report? {
+        self.schools = schools
+        
+        var report = ReportGenerator()
         
         types.forEach { (type) in
             switch type {
             case .school:
-                items.forEach {newReport.subReports.append(SchoolReport(title: $0.name, subReports: []))}
+                schools.forEach {report.subReports.append(SchoolReport(title: $0.name, subReports: []))}
             case .packaging:
-                newReport.subReports.append(PackagingReport(title: "Packaging Report", subReports: []))
+                report.subReports.append(PackagingReport(title: "Packaging Report", subReports: []))
             case .general:
                 print("")
             }
         }
         
-        return newReport
+        return report
     }
 }
+
+extension ReportManager: DistributionProtocol {}
 
 extension DistributionManager {
     func requestReports(types: [ReportType]) -> Report? {

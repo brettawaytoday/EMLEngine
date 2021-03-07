@@ -12,7 +12,6 @@ public enum PackagingType {
 }
 
 public protocol Packaging {
-    
     var packagingType: PackagingType { get }
     var capacity: Int { get }
     var meals: [MealType] { get set }
@@ -22,6 +21,10 @@ public protocol PackagingUse {
     func packMeals(with packageTypes: [PackagingType]) -> [Packaging]
 }
 
+
+/// Public function to build packaging of the types required.
+/// - Parameter packagingType: Describes the type of container and how many meals it can accommodate.
+/// - Returns: A container of type Packaging with a capacity.
 public func makePackaging(_ packagingType: PackagingType) -> Packaging {
     switch packagingType {
     case .boxSix:
@@ -31,6 +34,8 @@ public func makePackaging(_ packagingType: PackagingType) -> Packaging {
     }
 }
 
+
+/// Packaging in the form of a box to pack meals into. It has a meal capacity and accepts a meal type.
 struct Box: Packaging {
     internal var packagingType: PackagingType
     

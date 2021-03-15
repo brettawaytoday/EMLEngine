@@ -10,15 +10,11 @@ import Foundation
 protocol DistributionProtocol {
     
     var schools: [School]  { get }
-    
     var classroomCount: Int { get }
-    
     var mealCount: Int { get }
-    
     var allMeals: [Meal] { get }
     
     func countMealsContaining(_ dietary: [Dietaries]) -> Int
-    
     func countMealsMatching(_ dietary: [Dietaries]) -> Int
 }
 

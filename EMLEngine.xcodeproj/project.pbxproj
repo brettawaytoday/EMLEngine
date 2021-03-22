@@ -16,6 +16,10 @@
 		DE46953D25E61709006CACA8 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46953C25E61709006CACA8 /* TestHelpers.swift */; };
 		DE46954125E617DB006CACA8 /* DistributionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46954025E617DB006CACA8 /* DistributionManager.swift */; };
 		DE46954725E61807006CACA8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46954625E61807006CACA8 /* Functions.swift */; };
+		DE61EFF12602718F00B2A4A8 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61EFF02602718F00B2A4A8 /* DataManagerTests.swift */; };
+		DE61EFF22602718F00B2A4A8 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61EFF02602718F00B2A4A8 /* DataManagerTests.swift */; };
+		DE61EFF7260271E200B2A4A8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61EFF6260271E200B2A4A8 /* DataManager.swift */; };
+		DE61EFF8260271E200B2A4A8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61EFF6260271E200B2A4A8 /* DataManager.swift */; };
 		DE9D970D25FE87580015D4DF /* EMLEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9D970425FE87580015D4DF /* EMLEngine.framework */; };
 		DE9D972425FE87FF0015D4DF /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE46953C25E61709006CACA8 /* TestHelpers.swift */; };
 		DE9D972525FE87FF0015D4DF /* SchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE164425E5B63F00DD29B8 /* SchoolTests.swift */; };
@@ -36,6 +40,8 @@
 		DEBE164D25E5E49400DD29B8 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE164C25E5E49400DD29B8 /* Meal.swift */; };
 		DEBE165125E5E4BC00DD29B8 /* MealSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE165025E5E4BC00DD29B8 /* MealSize.swift */; };
 		DEBE165525E5E4DB00DD29B8 /* Dietaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE165425E5E4DB00DD29B8 /* Dietaries.swift */; };
+		DEE64EEA26043E4F00F01D73 /* DietariesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE64EE926043E4F00F01D73 /* DietariesTests.swift */; };
+		DEE64EEB26043E4F00F01D73 /* DietariesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE64EE926043E4F00F01D73 /* DietariesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +88,8 @@
 		DE46953C25E61709006CACA8 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		DE46954025E617DB006CACA8 /* DistributionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionManager.swift; sourceTree = "<group>"; };
 		DE46954625E61807006CACA8 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		DE61EFF02602718F00B2A4A8 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
+		DE61EFF6260271E200B2A4A8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		DE9D970425FE87580015D4DF /* EMLEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EMLEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9D970C25FE87580015D4DF /* EMLEngine_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EMLEngine_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEBE164425E5B63F00DD29B8 /* SchoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTests.swift; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 		DEBE164C25E5E49400DD29B8 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		DEBE165025E5E4BC00DD29B8 /* MealSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSize.swift; sourceTree = "<group>"; };
 		DEBE165425E5E4DB00DD29B8 /* Dietaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dietaries.swift; sourceTree = "<group>"; };
+		DEE64EE926043E4F00F01D73 /* DietariesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietariesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +166,7 @@
 				DEBE165425E5E4DB00DD29B8 /* Dietaries.swift */,
 				DE46954025E617DB006CACA8 /* DistributionManager.swift */,
 				DE46954625E61807006CACA8 /* Functions.swift */,
+				DE61EFF6260271E200B2A4A8 /* DataManager.swift */,
 				DE41C12525EEA2540095B260 /* ReportManager.swift */,
 			);
 			path = EMLEngine;
@@ -168,8 +178,10 @@
 				DE45DF9325E57E23006B9C6B /* Info.plist */,
 				DEBE164425E5B63F00DD29B8 /* SchoolTests.swift */,
 				DE45DF9125E57E23006B9C6B /* DistributionManagerTests.swift */,
+				DE61EFF02602718F00B2A4A8 /* DataManagerTests.swift */,
 				DE46953C25E61709006CACA8 /* TestHelpers.swift */,
 				DE41C12125EEA1220095B260 /* ReportManagerTests.swift */,
+				DEE64EE926043E4F00F01D73 /* DietariesTests.swift */,
 			);
 			path = EMLEngineTests;
 			sourceTree = "<group>";
@@ -356,6 +368,7 @@
 				DE46954725E61807006CACA8 /* Functions.swift in Sources */,
 				DEBE165125E5E4BC00DD29B8 /* MealSize.swift in Sources */,
 				DEBE165525E5E4DB00DD29B8 /* Dietaries.swift in Sources */,
+				DE61EFF7260271E200B2A4A8 /* DataManager.swift in Sources */,
 				DE46954125E617DB006CACA8 /* DistributionManager.swift in Sources */,
 				DE41C11A25EDA4160095B260 /* Classroom+Packaging+EXT.swift in Sources */,
 			);
@@ -365,7 +378,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE64EEA26043E4F00F01D73 /* DietariesTests.swift in Sources */,
 				DE45DF9225E57E23006B9C6B /* DistributionManagerTests.swift in Sources */,
+				DE61EFF12602718F00B2A4A8 /* DataManagerTests.swift in Sources */,
 				DE41C12225EEA1220095B260 /* ReportManagerTests.swift in Sources */,
 				DEBE164525E5B63F00DD29B8 /* SchoolTests.swift in Sources */,
 				DE46953D25E61709006CACA8 /* TestHelpers.swift in Sources */,
@@ -384,6 +399,7 @@
 				DE9D973225FE88060015D4DF /* Functions.swift in Sources */,
 				DE9D972F25FE88060015D4DF /* MealSize.swift in Sources */,
 				DE9D972C25FE88060015D4DF /* Classroom.swift in Sources */,
+				DE61EFF8260271E200B2A4A8 /* DataManager.swift in Sources */,
 				DE9D972D25FE88060015D4DF /* Classroom+Packaging+EXT.swift in Sources */,
 				DE9D972E25FE88060015D4DF /* Packaging.swift in Sources */,
 			);
@@ -393,7 +409,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE64EEB26043E4F00F01D73 /* DietariesTests.swift in Sources */,
 				DE9D972425FE87FF0015D4DF /* TestHelpers.swift in Sources */,
+				DE61EFF22602718F00B2A4A8 /* DataManagerTests.swift in Sources */,
 				DE9D972725FE87FF0015D4DF /* ReportManagerTests.swift in Sources */,
 				DE9D972525FE87FF0015D4DF /* SchoolTests.swift in Sources */,
 				DE9D972625FE87FF0015D4DF /* DistributionManagerTests.swift in Sources */,
@@ -649,6 +667,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};

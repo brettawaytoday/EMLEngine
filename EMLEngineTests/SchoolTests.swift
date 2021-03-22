@@ -45,5 +45,15 @@ class SchoolTests: XCTestCase {
         
         XCTAssertEqual(classroom.meals.count, 2)
     }
+    
+    func test_regularMealDescription_formatsCorrectly() {
+        let meal = makeMealWithDietaries_noFish_vegan()
+        XCTAssertEqual(meal.description, "Regular - (No Fish) (Vegan)")
+    }
+    
+    func test_hungryMealDescription_formatsCorrectly() {
+        let meal = Meal(.hungry, dietaries: [Dietaries(name: "No red meat", color: "Blue", type: .prefered)])
+        XCTAssertEqual(meal.description, "Hungry - (No red meat)")
+    }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MealSize {
+public enum MealSize {
     case regular
     case hungry
 }

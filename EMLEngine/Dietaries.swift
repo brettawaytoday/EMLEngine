@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Dietaries {
+public struct Dietaries {
     let name: String
     let color: String
     var type: DietaryType

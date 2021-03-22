@@ -8,7 +8,7 @@
 import Foundation
 
 extension Classroom: PackagingUse {
-    func packMeals(with packageTypes: [PackagingType]) -> [Packaging] {
+    public func packMeals(with packageTypes: [PackagingType]) -> [Packaging] {
         var allMeals = meals
         var packaging: [Packaging] = []
 

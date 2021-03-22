@@ -36,11 +36,11 @@ extension ClassroomProtocol {
     }
 }
 
-final class Classroom: ClassroomProtocol {
-    internal var school: School?
-    internal var name: String
+public final class Classroom: ClassroomProtocol {
+    public var school: School?
+    public var name: String
     
-    internal var meals: [Meal] = []
+    public var meals: [Meal] = []
     
     init(_ name: String) {
         self.name = name

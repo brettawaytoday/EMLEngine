@@ -24,16 +24,37 @@ extension MealProtocol {
     mutating func assign(_ classroom: Classroom) {
         self.classroom = classroom
     }
+    
+    
 }
 
-final class Meal: MealProtocol, MealType{
+public final class Meal: MealProtocol, MealType{
     internal var classroom: Classroom?
     
-    internal var size: MealSize
-    internal var dietaries: [Dietaries]
+    public var size: MealSize
+    public var dietaries: [Dietaries]
     
     init(_ size: MealSize, dietaries: [Dietaries]) {
         self.size = size
         self.dietaries = dietaries
+    }
+    
+    public var description: String {
+        var description = ""
+        switch size {
+        case .hungry:
+            description = "Hungry"
+        case .regular:
+            description = "Regular"
+        }
+        
+        description = description + " -"
+        
+        for item in dietaries {
+            description = description + " (" + item.name + ")"
+        }
+        
+        
+        return description
     }
 }

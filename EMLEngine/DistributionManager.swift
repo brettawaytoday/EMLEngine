@@ -31,6 +31,12 @@ extension DistributionProtocol{
         }
     }
     
+    var allClassrooms: [Classroom] {
+        schools.reduce([]) { (classrooms, school) -> [Classroom] in
+            classrooms + school.classrooms
+        }
+    }
+    
     var allMeals: [Meal] {
         schools.reduce([]) { (meals, school) -> [Meal] in
             meals + school.meals
@@ -64,13 +70,13 @@ extension DistributionProtocol{
     }
 }
 
-final class DistributionManager: DistributionProtocol {
-    internal var reportDelegate: ReportDelegate?
-    internal var schools: [School] = []
+public class DistributionManager: DistributionProtocol {
+    var reportDelegate: ReportDelegate?
+    public var schools: [School] = []
 }
 
 extension DistributionManager {
-    func packageOrder(in packagingType: [PackagingType]) -> [Packaging] {
+    public func packageOrder(in packagingType: [PackagingType]) -> [Packaging] {
         return schools.reduce([Packaging]()) { (packaging, school) -> [Packaging] in
             packaging + school.packMeals(with: packagingType)
         }

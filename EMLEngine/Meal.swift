@@ -48,6 +48,8 @@ public final class Meal: MealProtocol, MealType{
             description = "Regular"
         }
         
+        if dietaries.count == 0 { return description }
+        
         description = description + " -"
         
         for item in dietaries {

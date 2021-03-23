@@ -25,5 +25,9 @@ public class DataManager {
     public func getMeals() -> [Meal] {
         return distributionManager.allMeals
     }
+    
+    public func getPackaging() -> [Packaging] {
+        return distributionManager.packageOrder(in: [.boxSix, .boxTwelve])
+    }
 }
 

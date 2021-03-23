@@ -11,6 +11,19 @@ protocol Report {
     var type: ReportType { get }
     var title: String { get }
     var subReports: [Report] { get set }
+    var packagingReports: [Report] { get }
+    
+    func search(for reportType: ReportType) -> [Report]
+}
+
+extension Report {
+    var packagingReports: [Report] {
+        subReports.filter { $0.type == .packaging }
+    }
+    
+    func search(for reportType: ReportType) -> [Report] {
+        subReports.filter { $0.type == reportType }
+    }
 }
 
 protocol ReportDelegate {
@@ -31,6 +44,10 @@ extension ReportManager: ReportDelegate {
             switch type {
             case .school:
                 schools.forEach {report.subReports.append(SchoolReport(title: $0.name, subReports: []))}
+            case .classroom:
+                print("")
+            case .meal:
+                print("")
             case .packaging:
                 report.subReports.append(PackagingReport(title: "Packaging Report", subReports: []))
             case .general:
@@ -51,17 +68,41 @@ extension DistributionManager {
 }
 
 public enum ReportType {
-    case school, packaging, general
+    case school, classroom, meal, packaging, general
 }
 
 struct ReportGenerator: Report {
     var type: ReportType = .general
     var title: String = "Report"
     var subReports: [Report] = []
+    
+    var schools: [Report] {
+        subReports.filter { $0.type == .school }
+    }
 }
 
 struct SchoolReport: Report {
     var type: ReportType = .school
+    var title: String
+    var subReports: [Report]
+    
+    var classrooms: [Report] {
+        return subReports.filter { $0.type == .classroom }
+    }
+}
+
+struct ClassroomReport: Report {
+    var type: ReportType = .classroom
+    var title: String
+    var subReports: [Report]
+    
+    var meals: [Report] {
+        subReports.filter { $0.type == .meal }
+    }
+}
+
+struct MealReport: Report {
+    var type: ReportType = .meal
     var title: String
     var subReports: [Report]
 }

@@ -28,7 +28,7 @@ extension MealProtocol {
     
 }
 
-public final class Meal: MealProtocol, MealType{
+public final class Meal: MealProtocol, MealType {
     internal var classroom: Classroom?
     
     public var size: MealSize

@@ -29,7 +29,7 @@ extension Report {
 }
 
 protocol ReportDelegate {
-    func generateReports(for schools: [School]) -> Report?
+    func generateReports(with packagingType: [PackagingType], for schools: [School]) -> Report?
 }
 
 class ReportManager {
@@ -37,26 +37,42 @@ class ReportManager {
 }
 
 extension ReportManager: ReportDelegate {
-    func generateReports(for schools: [School]) -> Report? {
+    func generateReports(with packagingType: [PackagingType], for schools: [School]) -> Report? {
         self.schools = schools
         
         var report = ReportGenerator()
-        report.subReports.append(contentsOf: schoolReports())
-        report.subReports.append(PackagingReport(title: "Packaging Report", subReports: []))
+        
+        report.subReports.append(contentsOf: schoolReports(with: packagingType))
         
         
         return report
     }
     
-    private func schoolReports() -> [Report] {
+    private func schoolReports(with packagingType: [PackagingType]) -> [Report] {
         schools.map { school in
-            SchoolReport(school: school, with: classroomReports(for: school))
+            var schoolReport = SchoolReport(school: school, with: classroomReports(with: packagingType, for: school))
+            schoolReport.subReports.append(contentsOf: packagingReport(with: packagingType, for: school))
+            return schoolReport
         }
     }
     
-    private func classroomReports(for school: School) -> [Report] {
+    private func packagingReport(with packagingType: [PackagingType], for school: School) -> [Report] {
+        school.packMeals(with: packagingType).map { (packaging) -> Report in
+            PackagingReport(packaging: packaging)
+        }
+    }
+    
+    private func classroomReports(with packagingType: [PackagingType], for school: School) -> [Report] {
         school.classrooms.map { classroom in
-            ClassroomReport(classroom: classroom, with: mealReports(for: classroom))
+            var classroomReport = ClassroomReport(classroom: classroom, with: mealReports(for: classroom))
+            classroomReport.subReports.append(contentsOf: packagingReport(with: packagingType, for: classroom))
+            return classroomReport
+        }
+    }
+    
+    private func packagingReport(with packagingType: [PackagingType], for classroom: Classroom) -> [Report] {
+        classroom.packMeals(with: packagingType).map { (packaging) -> Report in
+            PackagingReport(packaging: packaging)
         }
     }
     
@@ -70,8 +86,8 @@ extension ReportManager: ReportDelegate {
 extension ReportManager: DistributionProtocol {}
 
 extension DistributionManager {
-    func requestReports() -> Report? {
-        return reportDelegate?.generateReports(for: schools)
+    func requestReports(packagingType: [PackagingType]) -> Report? {
+        return reportDelegate?.generateReports(with: packagingType, for: schools)
     }
 }
 
@@ -133,5 +149,12 @@ struct MealReport: Report {
 struct PackagingReport: Report {
     var type: ReportType = .packaging
     var title: String
+    var details: String
     var subReports: [Report]
+    
+    init(packaging: Packaging) {
+        self.title = packaging.title
+        self.details = packaging.details
+        self.subReports = []
+    }
 }

@@ -83,9 +83,3 @@ extension DistributionManager {
         }
     }
 }
-
-extension DistributionManager {
-    public func buildReports() -> Report? {
-        return reportManager.generateReports(for: schools)
-    }
-}

@@ -45,6 +45,9 @@ func makeMealWithoutDietaries() -> Meal {
 
 func makeDistributionManager() -> DistributionManager {
     let modelController = DistributionManager()
+    let reportManager = ReportManager()
+    
+    modelController.reportDelegate = reportManager
 
     let schools = [School("school one"), School("school two")]
 
@@ -69,6 +72,10 @@ func makeDistributionManager() -> DistributionManager {
 ///5 schools with 5 classrooms and 25 meals per classroom -> Meal count = 625 meals / Classroom count = 25
 func makeDistributionManagerWithLargeOrder() -> DistributionManager {
     let modelController = DistributionManager()
+    
+    let reportManager = ReportManager()
+    
+    modelController.reportDelegate = reportManager
 
     let schools = [School("school one"),
                    School("school two"),

@@ -36,7 +36,7 @@ extension ClassroomProtocol {
     }
 }
 
-public final class Classroom: ClassroomProtocol {
+public final class Classroom: ClassroomProtocol  {
     public var school: School?
     public var name: String
     

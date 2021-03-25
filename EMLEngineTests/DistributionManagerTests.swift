@@ -58,11 +58,11 @@ class DistributionManagerTests: XCTestCase {
     }
     
     func test_orderReturns_report() {
-        XCTAssertNotNil(makeDistributionManager().buildReports())
+        XCTAssertNotNil(makeDistributionManager().requestReports(packagingType: [.boxSix, .boxTwelve]))
     }
     
     func test_orderReturns_report_withSchoolReport() throws {
-        let report: ReportGenerator = try XCTUnwrap(makeDistributionManager().buildReports() as? ReportGenerator)
+        let report: ReportGenerator = try XCTUnwrap(makeDistributionManager().requestReports(packagingType: [.boxSix, .boxTwelve]) as? ReportGenerator)
         XCTAssertTrue(type(of: report) == ReportGenerator.self)
         let schoolReport: SchoolReport = try XCTUnwrap(report.schools.first as? SchoolReport)
         XCTAssertTrue(type(of: schoolReport) == SchoolReport.self)
@@ -70,5 +70,14 @@ class DistributionManagerTests: XCTestCase {
         XCTAssertTrue(type(of: classroomReport) == ClassroomReport.self)
         let mealReport: MealReport = try XCTUnwrap(classroomReport.meals.first as? MealReport)
         XCTAssertTrue(type(of: mealReport) == MealReport.self)
+    }
+    
+    func test_orderReturns_report_withPackagingReport() throws {
+        let report: ReportGenerator = try XCTUnwrap(makeDistributionManager().requestReports(packagingType: [.boxSix, .boxTwelve]) as? ReportGenerator)
+        XCTAssertTrue(type(of: report) == ReportGenerator.self)
+        let schoolReport: SchoolReport = try XCTUnwrap(report.schools.first as? SchoolReport)
+        XCTAssertEqual(schoolReport.search(for: .packaging).count, 5)
+        let classroomReport: ClassroomReport = try XCTUnwrap(schoolReport.classrooms.first as? ClassroomReport)
+        XCTAssertEqual(classroomReport.search(for: .packaging).count, 1)
     }
 }

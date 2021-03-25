@@ -15,6 +15,9 @@ public protocol Packaging {
     var packagingType: PackagingType { get }
     var capacity: Int { get }
     var meals: [MealType] { get set }
+    
+    var title: String { get }
+    var details: String { get }
 }
 
 public protocol PackagingUse {
@@ -41,6 +44,16 @@ struct Box: Packaging {
     
     internal var capacity: Int
     internal var meals: [MealType] = []
+    
+    let description = "Box"
+    
+    var title: String {
+        String(format: "%i/%i meals", meals, capacity)
+    }
+    
+    var details: String {
+        String(format: "%@ with a capacity of %i", description, capacity)
+    }
     
     init(_ packagingType: PackagingType, _ capacity: Int) {
         self.packagingType = packagingType

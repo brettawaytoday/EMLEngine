@@ -19,12 +19,16 @@ public protocol Report {
 }
 
 extension Report {
-    var packagingReports: [Report] {
+    public var packagingReports: [Report] {
         subReports.filter { $0.type == .packaging }
     }
     
-    func search(for reportType: ReportType) -> [Report] {
-        subReports.filter { $0.type == reportType }
+    public func search(for reportType: ReportType) -> [Report] {
+//        let subRep = subReports.forEach { (report) in
+//            report.subReport.filter { $0.type == reportType }
+//        }
+        let filtered: [Report] = subReports.filter { $0.type == reportType }
+        return filtered
     }
 }
 
@@ -95,35 +99,42 @@ public enum ReportType {
     case school, classroom, meal, packaging, general
 }
 
-struct ReportGenerator: Report {
-    var type: ReportType = .general
-    var title: String = "Report"
-    var subReports: [Report] = []
+public struct ReportGenerator: Report {
+    public var type: ReportType = .general
+    public var title: String = "Report"
+    public var subReports: [Report] = []
     
-    var schools: [Report] {
+    public var schools: [Report] {
         subReports.filter { $0.type == .school }
+    }
+    
+    public var classrooms: [Report] {
+        schools.reduce([Report]()) { (classrooms, school) -> [Report] in
+            guard let school = school as? SchoolReport else { return [] }
+            return classrooms + school.classrooms
+        }
     }
 }
 
-struct SchoolReport: Report {
-    var type: ReportType = .school
-    var title: String
-    var subReports: [Report]
+public struct SchoolReport: Report {
+    public var type: ReportType = .school
+    public var title: String
+    public var subReports: [Report]
     
     init(school: School, with classrooms: [Report]) {
         self.title = school.name
         self.subReports = classrooms
     }
     
-    var classrooms: [Report] {
+    public var classrooms: [Report] {
         return subReports.filter { $0.type == .classroom }
     }
 }
 
-struct ClassroomReport: Report {
-    var type: ReportType = .classroom
-    var title: String
-    var subReports: [Report]
+public struct ClassroomReport: Report {
+    public var type: ReportType = .classroom
+    public var title: String
+    public var subReports: [Report]
     
     init(classroom: Classroom, with meals: [Report]) {
         self.title = classroom.name
@@ -135,10 +146,10 @@ struct ClassroomReport: Report {
     }
 }
 
-struct MealReport: Report {
-    var type: ReportType = .meal
-    var title: String
-    var subReports: [Report]
+public struct MealReport: Report {
+    public var type: ReportType = .meal
+    public var title: String
+    public var subReports: [Report]
     
     init(meal: Meal) {
         self.title = meal.description
@@ -146,11 +157,11 @@ struct MealReport: Report {
     }
 }
 
-struct PackagingReport: Report {
-    var type: ReportType = .packaging
-    var title: String
-    var details: String
-    var subReports: [Report]
+public struct PackagingReport: Report {
+    public var type: ReportType = .packaging
+    public var title: String
+    public var details: String
+    public var subReports: [Report]
     
     init(packaging: Packaging) {
         self.title = packaging.title

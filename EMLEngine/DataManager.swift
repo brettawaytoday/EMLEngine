@@ -29,5 +29,9 @@ public class DataManager {
     public func getPackaging() -> [Packaging] {
         return distributionManager.packageOrder(in: [.boxSix, .boxTwelve])
     }
+    
+    public func getReport() -> Report? {
+        return distributionManager.requestReports(packagingType: [.boxSix, .boxTwelve])
+    }
 }
 

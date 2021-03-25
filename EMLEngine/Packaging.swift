@@ -48,7 +48,7 @@ struct Box: Packaging {
     let description = "Box"
     
     var title: String {
-        String(format: "%i/%i meals", meals, capacity)
+        String(format: "%i/%i meals", meals.count, capacity)
     }
     
     var details: String {

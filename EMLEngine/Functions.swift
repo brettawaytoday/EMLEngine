@@ -23,7 +23,9 @@ func addMeal(_ meal: Meal, to classroom: Classroom){
 
 #if DEBUG
 public func makeDataManager() -> DataManager {
-    return DataManager(makeDistributionManagerWithLargeOrder())
+    var dataManager = DataManager(makeDistributionManagerWithLargeOrder())
+    dataManager.distributionManager.reportDelegate = ReportManager()
+    return dataManager
 }
 
 func makeSchool() -> School {
@@ -31,7 +33,7 @@ func makeSchool() -> School {
 }
 
 func makeClassroom() -> Classroom {
-    return Classroom("classroom name")
+    return Classroom("classroom \(Int.random(in: 1...50))")
 }
 
 func makeMealWithDietaries_noFish_vegan() -> Meal {
@@ -130,7 +132,7 @@ func makeDistributionManagerWithLargeOrder() -> DistributionManager {
                          makeMealWithoutDietaries()
             ]
 
-            for meal in meals {
+            for meal in randomMeals() {
                 addMeal(meal, to: classroom)
             }
             addClassroom(classroom, to: school)
@@ -140,5 +142,42 @@ func makeDistributionManagerWithLargeOrder() -> DistributionManager {
     modelController.schools = schools
     
     return modelController
+}
+
+func randomMeals() -> [Meal] {
+    var returnArray = [Meal]()
+    let meals = [makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithoutDietaries(),
+                 makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithoutDietaries(),
+                 makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithoutDietaries(),
+                 makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithoutDietaries(),
+                 makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noFish_vegan(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithDietaries_noRawOnion_noMeat(),
+                 makeMealWithoutDietaries()
+    ]
+    for _ in 0...Int.random(in: 1...20) {
+        if let elemant = meals.randomElement() {
+            returnArray.append(elemant)
+        }
+        
+    }
+    return returnArray
 }
 #endif

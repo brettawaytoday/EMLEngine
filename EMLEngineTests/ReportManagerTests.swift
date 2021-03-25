@@ -16,13 +16,13 @@ class ReportManagerTests: XCTestCase {
     }
     
     func test_reportManager_generatesReport() {
-        XCTAssertNotNil(makeSut().distributionManager.requestReports(types: [.school]))
+        XCTAssertNotNil(makeSut().distributionManager.requestReports())
     }
     
     func test_reportManager_generatesReport_withTwoSubreports() {
         let sut = makeSut()
         sut.distributionManager.schools = [makeSchool()]
-        XCTAssertEqual(sut.distributionManager.requestReports(types: [.school, .packaging])?.subReports.count, 2)
+        XCTAssertEqual(sut.distributionManager.requestReports()?.subReports.count, 2)
     }
     
     //MARK: - Helpers

@@ -71,6 +71,7 @@ extension DistributionProtocol{
 }
 
 public class DistributionManager: DistributionProtocol {
+    let reportManager = ReportManager()
     var reportDelegate: ReportDelegate?
     public var schools: [School] = []
 }
@@ -80,5 +81,11 @@ extension DistributionManager {
         return schools.reduce([Packaging]()) { (packaging, school) -> [Packaging] in
             packaging + school.packMeals(with: packagingType)
         }
+    }
+}
+
+extension DistributionManager {
+    public func buildReports() -> Report? {
+        return reportManager.generateReports(for: schools)
     }
 }

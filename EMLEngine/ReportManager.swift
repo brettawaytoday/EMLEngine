@@ -7,13 +7,15 @@
 
 import Foundation
 
-protocol Report {
-    var type: ReportType { get }
-    var title: String { get }
+public protocol Report {
+    var type: ReportType { get set }
+    var title: String { get set }
     var subReports: [Report] { get set }
     var packagingReports: [Report] { get }
     
     func search(for reportType: ReportType) -> [Report]
+    
+    
 }
 
 extension Report {
@@ -27,7 +29,7 @@ extension Report {
 }
 
 protocol ReportDelegate {
-    func generateReports(_ types: [ReportType], for schools: [School]) -> Report?
+    func generateReports(for schools: [School]) -> Report?
 }
 
 class ReportManager {
@@ -35,35 +37,41 @@ class ReportManager {
 }
 
 extension ReportManager: ReportDelegate {
-    func generateReports(_ types: [ReportType], for schools: [School]) -> Report? {
+    func generateReports(for schools: [School]) -> Report? {
         self.schools = schools
         
         var report = ReportGenerator()
+        report.subReports.append(contentsOf: schoolReports())
+        report.subReports.append(PackagingReport(title: "Packaging Report", subReports: []))
         
-        types.forEach { (type) in
-            switch type {
-            case .school:
-                schools.forEach {report.subReports.append(SchoolReport(title: $0.name, subReports: []))}
-            case .classroom:
-                print("")
-            case .meal:
-                print("")
-            case .packaging:
-                report.subReports.append(PackagingReport(title: "Packaging Report", subReports: []))
-            case .general:
-                print("")
-            }
-        }
         
         return report
+    }
+    
+    private func schoolReports() -> [Report] {
+        schools.map { school in
+            SchoolReport(school: school, with: classroomReports(for: school))
+        }
+    }
+    
+    private func classroomReports(for school: School) -> [Report] {
+        school.classrooms.map { classroom in
+            ClassroomReport(classroom: classroom, with: mealReports(for: classroom))
+        }
+    }
+    
+    private func mealReports(for classroom: Classroom) -> [Report] {
+        classroom.meals.map { meal in
+            MealReport(meal: meal)
+        }
     }
 }
 
 extension ReportManager: DistributionProtocol {}
 
 extension DistributionManager {
-    func requestReports(types: [ReportType]) -> Report? {
-        return reportDelegate?.generateReports(types, for: schools)
+    func requestReports() -> Report? {
+        return reportDelegate?.generateReports(for: schools)
     }
 }
 
@@ -86,6 +94,11 @@ struct SchoolReport: Report {
     var title: String
     var subReports: [Report]
     
+    init(school: School, with classrooms: [Report]) {
+        self.title = school.name
+        self.subReports = classrooms
+    }
+    
     var classrooms: [Report] {
         return subReports.filter { $0.type == .classroom }
     }
@@ -96,6 +109,11 @@ struct ClassroomReport: Report {
     var title: String
     var subReports: [Report]
     
+    init(classroom: Classroom, with meals: [Report]) {
+        self.title = classroom.name
+        self.subReports = meals
+    }
+    
     var meals: [Report] {
         subReports.filter { $0.type == .meal }
     }
@@ -105,6 +123,11 @@ struct MealReport: Report {
     var type: ReportType = .meal
     var title: String
     var subReports: [Report]
+    
+    init(meal: Meal) {
+        self.title = meal.description
+        self.subReports = []
+    }
 }
 
 struct PackagingReport: Report {

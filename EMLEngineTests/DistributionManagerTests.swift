@@ -56,4 +56,19 @@ class DistributionManagerTests: XCTestCase {
         XCTAssertEqual(makeDistributionManagerWithLargeOrder().packageOrder(in: [.boxSix]).count, 125)
         XCTAssertEqual(makeDistributionManagerWithLargeOrder().packageOrder(in: [.boxTwelve, .boxSix]).count, 75)
     }
+    
+    func test_orderReturns_report() {
+        XCTAssertNotNil(makeDistributionManager().buildReports())
+    }
+    
+    func test_orderReturns_report_withSchoolReport() throws {
+        let report: ReportGenerator = try XCTUnwrap(makeDistributionManager().buildReports() as? ReportGenerator)
+        XCTAssertTrue(type(of: report) == ReportGenerator.self)
+        let schoolReport: SchoolReport = try XCTUnwrap(report.schools.first as? SchoolReport)
+        XCTAssertTrue(type(of: schoolReport) == SchoolReport.self)
+        let classroomReport: ClassroomReport = try XCTUnwrap(schoolReport.classrooms.first as? ClassroomReport)
+        XCTAssertTrue(type(of: classroomReport) == ClassroomReport.self)
+        let mealReport: MealReport = try XCTUnwrap(classroomReport.meals.first as? MealReport)
+        XCTAssertTrue(type(of: mealReport) == MealReport.self)
+    }
 }

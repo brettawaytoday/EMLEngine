@@ -57,6 +57,14 @@ func makeMealWithDietaries_noRawOnion_vegan() -> Meal {
     return Meal(.regular, dietaries: [noRawOnion, vegan])
 }
 
+func makeMealWith_chokingHazard() -> Meal {
+    Meal(.regular, dietaries: [Dietaries(name: "Soft snack", color: "yellow", type: .chokingHazard)])
+}
+
+func makeMealWith_allergy() -> Meal {
+    Meal(.regular, dietaries: [Dietaries(name: "Seeds", color: "yellow", type: .allergy)])
+}
+
 func makeMealWithoutDietaries() -> Meal {
     return Meal(.regular, dietaries: [])
 }
@@ -106,30 +114,12 @@ func makeDistributionManagerWithLargeOrder() -> DistributionManager {
         for classroom in classrooms {
             ///25 meals
             let meals = [makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noRawOnion_noMeat(),
                          makeMealWithDietaries_noRawOnion_noMeat(),
                          makeMealWithoutDietaries(),
                          makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noRawOnion_noMeat(),
-                         makeMealWithDietaries_noRawOnion_noMeat(),
+                         makeMealWith_chokingHazard(),
                          makeMealWithoutDietaries(),
-                         makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noRawOnion_noMeat(),
-                         makeMealWithDietaries_noRawOnion_noMeat(),
-                         makeMealWithoutDietaries(),
-                         makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noRawOnion_noMeat(),
-                         makeMealWithDietaries_noRawOnion_noMeat(),
-                         makeMealWithoutDietaries(),
-                         makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noFish_vegan(),
-                         makeMealWithDietaries_noRawOnion_noMeat(),
-                         makeMealWithDietaries_noRawOnion_noMeat(),
-                         makeMealWithoutDietaries()
+                         makeMealWith_allergy()
             ]
 
             for meal in randomMeals() {
@@ -170,7 +160,11 @@ func randomMeals() -> [Meal] {
                  makeMealWithDietaries_noFish_vegan(),
                  makeMealWithDietaries_noRawOnion_noMeat(),
                  makeMealWithDietaries_noRawOnion_noMeat(),
-                 makeMealWithoutDietaries()
+                 makeMealWithoutDietaries(),
+                 makeMealWith_chokingHazard(),
+                 makeMealWith_allergy()
+                 
+                 
     ]
     for _ in 0...Int.random(in: 1...20) {
         if let elemant = meals.randomElement() {

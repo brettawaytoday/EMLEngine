@@ -24,9 +24,6 @@ extension Report {
     }
     
     public func search(for reportType: ReportType) -> [Report] {
-//        let subRep = subReports.forEach { (report) in
-//            report.subReport.filter { $0.type == reportType }
-//        }
         let filtered: [Report] = subReports.filter { $0.type == reportType }
         return filtered
     }
@@ -151,8 +148,16 @@ public struct MealReport: Report {
     public var title: String
     public var subReports: [Report]
     
+    public var colors: [String] = []
+    
+    public var chocking: Bool = false
+    public var allergy: Bool = false
+    
     init(meal: Meal) {
         self.title = meal.description
+        self.colors = meal.colors
+        self.chocking = meal.chocking
+        self.allergy = meal.allergy
         self.subReports = []
     }
 }

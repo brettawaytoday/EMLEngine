@@ -34,6 +34,19 @@ public final class Meal: MealProtocol, MealType {
     public var size: MealSize
     public var dietaries: [Dietaries]
     
+    public var colors: [String] {
+        dietaries.map { $0.color }
+    }
+    
+    public var chocking: Bool {
+        dietaries.contains { (dietaries) -> Bool in
+            dietaries.type == .chokingHazard
+        }
+    }
+    public var allergy: Bool {
+        dietaries.contains { $0.type == .allergy }
+    }
+    
     init(_ size: MealSize, dietaries: [Dietaries]) {
         self.size = size
         self.dietaries = dietaries
